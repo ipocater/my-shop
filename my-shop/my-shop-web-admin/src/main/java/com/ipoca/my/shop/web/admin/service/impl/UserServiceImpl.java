@@ -14,6 +14,7 @@ public class UserServiceImpl implements UserService {
     private UserDao userDao;
 
     public User login(String email, String password) {
-        return userDao.getUser(email,password);
+       // return userDao.getUser(email,password);
+        return null;
     }
 }

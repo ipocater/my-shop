@@ -10,5 +10,5 @@ public interface UserDao {
      * @param password
      * @return 用户
      */
-    public User getUser(String email, String password);
+//    public User getUser(String email, String password);
 }

@@ -13,4 +13,15 @@ public interface TbUserDao {
      * @return
      */
     public List<TbUser> selectAll();
+
+    public void insert(TbUser tbUser);
+
+    public void delete(Long id);
+
+    public TbUser getById(Long id);
+
+    public void update(TbUser tbUser);
+
+    public List<TbUser> selectByName(String username);
+
 }
