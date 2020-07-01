@@ -3,13 +3,14 @@
 <mapper namespace="com.ipoca.my.shop.web.admin.dao.TbUserDao">
 
     <sql id="tbUserColumns">
+          select
           a.id,
           a.username,
           a.password,
           a.phone,
           a.email,
           a.created,
-          a.updated as update
+          a.updated as 'update'
     </sql>
 
     <select id="selectAll" resultType="TbUser">
@@ -73,5 +74,28 @@
       tb_user AS a
     WHERE
       a.username LIKE CONCAT ('%', #{username}, '%')
+    </select>
+
+    <select id="selectByCondition" resultType="TbUser">
+        <include refid="tbUserColumns"/>
+        FROM
+        tb_user AS a
+        <where>
+            <if test="id != null and id > 0">
+                 and a.id = #{id}
+            </if>
+            <if test="username != null and username != '' ">
+                and a.username = #{username}
+            </if>
+            <if test="password != null and password != '' ">
+                and a.password = #{password}
+            </if>
+            <if test="phone!= null and phone != '' ">
+                and a.phone = #{phone}
+            </if>
+            <if test="email != null and email != '' ">
+                and a.email = #{email}
+            </if>
+        </where>
     </select>
 </mapper>
