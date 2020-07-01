@@ -24,4 +24,5 @@ public interface TbUserDao {
 
     public List<TbUser> selectByName(String username);
 
+    List<TbUser> selectByCondition(TbUser tbUser);
 }
